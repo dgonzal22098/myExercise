@@ -25,7 +25,7 @@ const Rutina = () => {
     const [clear, setClear] = useState(true);
 
     const manejarClickHoy = () => {
-        const diaDescanso = [ "miércoles", "viernes", "domingo"];
+        const diaDescanso = [ "jueves", "domingo"];
         const hoyMin = dayToday.toLowerCase();
         setEntrenamos(!diaDescanso.includes(hoyMin));
         setDiaRutina(hoyMin);
@@ -37,7 +37,7 @@ const Rutina = () => {
     }
 
     const manejarSeleccionDia = (dia) => {
-        const diaDescanso = [ "miércoles", "viernes", "domingo"];
+        const diaDescanso = [ "jueves", "domingo"];
         setDiaRutina(dia);
         setEntrenamos(!diaDescanso.includes(dia));
         setShowWeekdays(false);
@@ -125,7 +125,8 @@ export default Rutina;
 const weekdays = [
     "lunes",
     "martes",
-    "jueves",
+    "miércoles",
+    "viernes",
     "sábado",
 ]
 const Days = styled.div`
@@ -154,13 +155,14 @@ const DayItem = styled.div`
 `;
 
 const Container = styled.div`
-    width: 100dvw;
+    width: 100%;
     height: 100dvh;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: start;
     align-items: center;
+    padding-bottom: 4rem;
     
     .clear{
         width: 40%;

@@ -55,18 +55,29 @@ const TableRutina = ({dia}) => {
                    </TableHead>
                    <TableBody>
                        {ejercicioDelDia?.ejercicios?.map((ej,idx) => (
-                           <TableRow key={idx} onClick={() => {
-                               setId(ej.id);
-                               setShowModal(true);
-                               setNombre(ej.nombre);
-                               setReps(ej.repeticiones);
-                               setSeries(ej.series);
-                               setVideoUrl(transformarShortsAEmbed(ej.videoUrl));
-                           }}>
-                               <TableCell>{ej.nombre}</TableCell>
-                               <TableCell>{ej.series}</TableCell>
-                               <TableCell>{ej.repeticiones}</TableCell>
-                               <TableCell>{ej.peso}</TableCell>
+                           <TableRow
+                               key={idx}
+                               onClick={() => {
+                                   setId(ej.id);
+                                   setShowModal(true);
+                                   setNombre(ej.nombre);
+                                   setReps(ej.repeticiones);
+                                   setSeries(ej.series);
+                                   setVideoUrl(transformarShortsAEmbed(ej.videoUrl));
+                               }}
+                               sx={{
+                                   cursor: 'pointer',
+                                   transition: 'opacity .3s ease',
+                                   '&:hover': {
+                                       opacity: 0.6,
+                                       backgroundColor: '#f5f5f5',
+                                   }
+                               }}
+                           >
+                                   <TableCell>{ej.nombre}</TableCell>
+                                   <TableCell>{ej.series}</TableCell>
+                                   <TableCell>{ej.repeticiones}</TableCell>
+                                   <TableCell>{ej.peso}</TableCell>
                            </TableRow>
                            )) || (
                                <TableRow>
@@ -93,234 +104,289 @@ export default TableRutina;
 const rutinaEntrenamiento = [
     {
         dia: "lunes",
-        grupoMuscular: "Pecho + Espalda",
+        grupoMuscular: "QUADS + GLUTEOS",
         ejercicios: [
             {
                 id: 1,
-                nombre: "Press de banca",
+                nombre: "BOX SQUAT (BARBELL)",
                 series: 4,
                 repeticiones: "8",
                 peso: 30,
-                videoUrl: "https://www.youtube.com/shorts/g4Ah9uYn8pI"
+                videoUrl: "https://www.youtube.com/shorts/2aIgi73HIw8"
             },
             {
                 id: 2,
-                nombre: "Remo con barra",
-                series: 4,
-                repeticiones: "10",
+                nombre: "LEG EXTENSION",
+                series: 3,
+                repeticiones: "15",
                 peso: 40,
                 videoUrl: "https://www.youtube.com/shorts/sr_U0jBE89A"
             },
             {
                 id: 3,
-                nombre: "Press inclinado con mancuernas",
+                nombre: "B-STANCE HIP THRUST (SMITH/MACHINE)",
                 series: 3,
-                repeticiones: "10",
-                peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/R3eCn7-9wC0"
+                repeticiones: "15/12/10",
+                peso: 30,
+                videoUrl: "https://www.youtube.com/shorts/dhB0mWAqJ_A"
             },
             {
                 id: 4,
-                nombre: "Jalones al pecho / dominadas",
+                nombre: "HIP ADDUCTION (MACHINE)",
                 series: 3,
-                repeticiones: "08-oct",
-                peso: 30,
-                videoUrl: "https://www.youtube.com/shorts/W2x6zP9k7SM"
+                repeticiones: "20",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/BXs0PIkdXGs"
             },
             {
                 id: 5,
-                nombre: "Fondos o flexiones con peso",
-                series: 3,
-                repeticiones: "12",
-                peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/1fR3Ss8OFug"
-            },
-            {
-                id: 6,
-                nombre: "Remo con mancuerna",
-                series: 3,
-                repeticiones: "10",
+                nombre: "HEEL-ELEVATED GOBLET SQUAT",
+                series: 2,
+                repeticiones: "15-20",
                 peso: 25,
-                videoUrl: "https://www.youtube.com/shorts/-CU28KNFmpU"
-            },
-            {
-                id: 7,
-                nombre: "Face pull o pájaros",
-                series: 3,
-                repeticiones: "12",
-                peso: 10,
-                videoUrl: "https://www.youtube.com/shorts/CkIoZeOKfPw"
+                videoUrl: "https://www.youtube.com/shorts/UPeQpDPRWOg"
             },
         ],
     },
     {
         dia: "martes",
-        grupoMuscular: "Piernas",
+        grupoMuscular: "PUSH",
         ejercicios: [
             {
-                id: 8,
-                nombre: "Sentadilla libre o con barra",
+                id: 6,
+                nombre: "INCLINE BENCH PRESS (SMITH)",
                 series: 4,
-                repeticiones: "8",
+                repeticiones: "8-10",
                 peso: 40,
-                videoUrl: "https://www.youtube.com/shorts/NHD0vH7XXgw"
+                videoUrl: "https://www.youtube.com/shorts/iYc0qr2HjaE"
+            },
+            {
+                id: 7,
+                nombre: "ARNOLD PRESS (DUMBBELL)",
+                series: 3,
+                repeticiones: "8-10",
+                peso: 10,
+                videoUrl: "https://www.youtube.com/shorts/6K_N9AGhItQ"
+            },
+            {
+                id: 8,
+                nombre: "HI-TO-LO CHEST FLY (MACHINE)",
+                series: 3,
+                repeticiones: "15-20",
+                peso: 30,
+                videoUrl: "https://www.youtube.com/shorts/fgXSA2-o0NM"
             },
             {
                 id: 9,
-                nombre: "Peso muerto rumano",
+                nombre: "LATERAL RAISE (CABLE)",
                 series: 3,
-                repeticiones: "10",
-                peso: 35,
-                videoUrl: "https://www.youtube.com/shorts/7_o_8AfKvTM"
+                repeticiones: "15-20",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/lMJUXEvcMkQ"
             },
             {
                 id: 10,
-                nombre: "Prensa de piernas",
+                nombre: "TRICEP OVERHEAD (DUMBBELL)",
                 series: 3,
-                repeticiones: "12",
-                peso: 70,
-                videoUrl: "https://www.youtube.com/shorts/gwKAMGyVIJE"
+                repeticiones: "12-15",
+                peso: 10,
+                videoUrl: "https://www.youtube.com/shorts/b_r_LW4HEcM"
             },
             {
                 id: 11,
-                nombre: "Zancadas / desplantes caminando",
+                nombre: "1-ARM SEATED CHEST PRESS",
                 series: 3,
-                repeticiones: "12",
+                repeticiones: "12-15",
                 peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/a4_Vw2P-3qQ"
+                videoUrl: "https://www.youtube.com/shorts/2awX3rTGa1k"
             },
             {
                 id: 12,
-                nombre: "Elevaciones de talones",
+                nombre: "TRICEP STRAIGHT-BAR PUSHDOWN (CABLE)",
                 series: 3,
-                repeticiones: "20",
-                peso: 50,
-                videoUrl: "https://www.youtube.com/shorts/fKt3Q0peC0Y"
-            },
-            {
-                id: 13,
-                nombre: "Plancha abdominal",
-                series: 3,
-                repeticiones: "30 seg",
-                peso: 0,
-                videoUrl: "https://www.youtube.com/shorts/3AM7L2k7BEw"
+                repeticiones: "8-10",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/0sFXGmrhVlE"
             },
         ],
     },
     {
-        dia: "jueves",
-        grupoMuscular: "Hombros + Brazos",
+        dia: "miércoles",
+        grupoMuscular: "PULL",
         ejercicios: [
             {
-                id: 14,
-                nombre: "Press militar o mancuernas",
+                id: 13,
+                nombre: "LAT PULLDOWN CLOSE-GRIP (CABLE)",
                 series: 4,
-                repeticiones: "10",
+                repeticiones: "8-10",
                 peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/SPlZA3Rvts8"
+                videoUrl: "https://www.youtube.com/shorts/uy0YkGtY7A8"
+            },
+            {
+                id: 14,
+                nombre: "T-BAR ROW WIDE-GRIP (MACHINE)",
+                series: 3,
+                repeticiones: "12-15",
+                peso: 15,
+                videoUrl: "https://www.youtube.com/shorts/8pR3JoZ0iBU"
             },
             {
                 id: 15,
-                nombre: "Elevaciones laterales",
+                nombre: "HI-TO-LO FACE-PULL ROPE (CABLE)",
                 series: 3,
-                repeticiones: "12",
-                peso: 6,
-                videoUrl: "https://www.youtube.com/shorts/zBqZqAjCnR4"
+                repeticiones: "15-20",
+                peso: 8,
+                videoUrl: "https://www.youtube.com/shorts/IeOqdw9WI90"
             },
             {
                 id: 16,
-                nombre: "Curl de bíceps con barra",
+                nombre: "BOYESIAN CURL (CABLE)",
                 series: 3,
-                repeticiones: "10",
-                peso: 8,
-                videoUrl: "https://www.youtube.com/shorts/l-BPupny6cM"
+                repeticiones: "12-15",
+                peso: 10,
+                videoUrl: "https://www.youtube.com/shorts/_Z8Afknw_Fc"
             },
             {
                 id: 17,
-                nombre: "Extensiones de tríceps con cuerda",
+                nombre: "STRAIGHT-ARM LAT PULLDOWN (CABLE)",
                 series: 3,
-                repeticiones: "10",
-                peso: 10,
-                videoUrl: "https://www.youtube.com/shorts/vqq2NowgTrk"
+                repeticiones: "15-20",
+                peso: 15,
+                videoUrl: "https://www.youtube.com/shorts/hAMcfubonDc"
             },
             {
                 id: 18,
-                nombre: "Curl martillo",
+                nombre: "STANDING SHRUGS (DUMBBELLS)",
                 series: 3,
-                repeticiones: "12",
-                peso: 10,
-                videoUrl: "https://www.youtube.com/shorts/07D2fR_0iro"
+                repeticiones: "12-15",
+                peso: 15,
+                videoUrl: "https://www.youtube.com/shorts/j2-RccWDhDo"
             },
             {
                 id: 19,
-                nombre: "Fondos / press cerrado",
+                nombre: "PREACHER CURL (EZ-BAR)",
                 series: 3,
-                repeticiones: "12",
-                peso: 25,
-                videoUrl: "https://www.youtube.com/shorts/xPWNMj8uz64"
-            },
-            {
-                id: 20,
-                nombre: "Encogimientos de hombros / frontales",
-                series: 2,
-                repeticiones: "15",
+                repeticiones: "10-12",
                 peso: 15,
-                videoUrl: "https://www.youtube.com/shorts/QgokS_HikVo"
+                videoUrl: "https://www.youtube.com/shorts/7ixqAPO6JvU"
             },
         ],
     },
     {
-        dia: "sábado",
-        grupoMuscular: "Full Body + Core",
+        dia: "viernes",
+        grupoMuscular: "HARMSTRINGS/GLUTES",
         ejercicios: [
             {
-                id: 21,
-                nombre: "Sentadilla goblet",
-                series: 3,
-                repeticiones: "15",
+                id: 20,
+                nombre: "ROMANIAN DEADLIFT (DUMBBELL)",
+                series: 4,
+                repeticiones: "6-8",
                 peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/2KbVt1Gl0VM"
+                videoUrl: "https://www.youtube.com/shorts/oQwnGfZFfzw"
+            },
+            {
+                id: 21,
+                nombre: "DEFICIT REVERSE LUNGES (SMITH)",
+                series: 3,
+                repeticiones: "10-12",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/GKxPt0Bum10"
             },
             {
                 id: 22,
-                nombre: "Flexiones o press",
+                nombre: "LYING LEG CURL (MACHINE)",
                 series: 3,
-                repeticiones: "15",
-                peso: 0,
-                videoUrl: "https://www.youtube.com/shorts/D1WGEkKlh6Q"
+                repeticiones: "15-20",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/FRy58-v0YII"
             },
             {
                 id: 23,
-                nombre: "Remo con banda o barra",
+                nombre: "GLUTE-FOCUSED STEP-UP (CABLE)",
                 series: 3,
-                repeticiones: "12",
+                repeticiones: "12-15",
                 peso: 20,
-                videoUrl: "https://www.youtube.com/shorts/sr_U0jBE89A"
+                videoUrl: "https://www.youtube.com/shorts/8SMKj_HeBpg"
             },
             {
                 id: 24,
-                nombre: "Peso muerto ligero",
+                nombre: "SEATED HIP ABDUCTION (MACHINE)",
                 series: 3,
-                repeticiones: "10",
-                peso: 30,
-                videoUrl: "https://www.youtube.com/shorts/5kYMN400cOs"
+                repeticiones: "20-25",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/tu4o4quPv2k"
             },
             {
                 id: 25,
-                nombre: "Crunch + elevaciones de piernas",
-                series: 3,
-                repeticiones: "20",
-                peso: 0,
-                videoUrl: "https://www.youtube.com/shorts/6NA99YASwd8"
-            },
+                nombre: "45 GLUTE/HAM RAISE (DUMBBELL/PLATE)",
+                series: "2x",
+                repeticiones: "FAILURE",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/sgKEwdKQnOg"
+            }
+
+        ]
+    },
+    {
+        dia: "sábado",
+        grupoMuscular: "UPPER",
+        ejercicios: [
             {
                 id: 26,
-                nombre: "Cardio HIIT (opcional)",
-                series: 1,
-                repeticiones: "10-15 min",
-                peso: 0,
-                videoUrl: "https://www.youtube.com/shorts/EsaOHRk0Cu0"
+                nombre: "BENT-OVER ROW (LANDMINE)",
+                series: 4,
+                repeticiones: "6-8",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/MxfJ2m2JQB4"
             },
+            {
+                id: 27,
+                nombre: "FLAT BENCH PRESS (SMITH)",
+                series: 3,
+                repeticiones: "12/10/8",
+                peso: 0,
+                videoUrl: "https://www.youtube.com/shorts/_FkbD0FhgVE"
+            },
+            {
+                id: 28,
+                nombre: "SEATED OVERHEAD PRESS (MACHINE)",
+                series: 3,
+                repeticiones: "10-12",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/zoN5EH50Dro"
+            },
+            {
+                id: 29,
+                nombre: "LAT PULLDOWN WIDE-GRIP (CABLE)",
+                series: 3,
+                repeticiones: "12-15",
+                peso:230,
+                videoUrl: "https://www.youtube.com/shorts/y7jGNnMV4_k"
+            },
+            {
+                id: 30,
+                nombre: "LO-TO-HI CHEST FLY (CABLE)",
+                series: 3,
+                repeticiones: "20",
+                peso: 20,
+                videoUrl: "https://www.youtube.com/shorts/4rzubG1aoAM"
+            },
+            {
+                id: 31,
+                nombre: "TRICEP PUSHDOWN (CABLE)",
+                series: 3,
+                repeticiones: "10-12",
+                peso: 0,
+                videoUrl: "https://www.youtube.com/shorts/1FjkhpZsaxc"
+            },
+            {
+                id: 32,
+                nombre: "PREACHER CURL (MACHINE)",
+                series: 3,
+                repeticiones: "12-15",
+                peso: 0,
+                videoUrl: "https://www.youtube.com/shorts/0y4tdUNPdlE"
+            }
         ],
     },
 ];
