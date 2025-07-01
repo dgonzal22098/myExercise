@@ -110,7 +110,7 @@ const rutinaEntrenamiento = [
                 id: 1,
                 nombre: "BOX SQUAT (BARBELL)",
                 series: 4,
-                repeticiones: "8",
+                repeticiones: "6-8",
                 peso: 30,
                 videoUrl: "https://www.youtube.com/shorts/2aIgi73HIw8"
             },
@@ -118,9 +118,9 @@ const rutinaEntrenamiento = [
                 id: 2,
                 nombre: "LEG EXTENSION",
                 series: 3,
-                repeticiones: "15",
+                repeticiones: "15-20",
                 peso: 40,
-                videoUrl: "https://www.youtube.com/shorts/sr_U0jBE89A"
+                videoUrl: "https://www.youtube.com/shorts/ZgmufzNpEPk"
             },
             {
                 id: 3,
