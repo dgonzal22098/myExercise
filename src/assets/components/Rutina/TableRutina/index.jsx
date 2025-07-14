@@ -5,7 +5,8 @@ import {
     TableContainer,
     TableHead,
     TableRow,
-    Paper
+    Paper,
+    Checkbox,
 } from '@mui/material';
 import VideoModal from '../VideoModal'
 import {useState} from "react";
@@ -51,6 +52,7 @@ const TableRutina = ({dia}) => {
                            <TableCell><strong>Series</strong></TableCell>
                            <TableCell><strong>Reps</strong></TableCell>
                            <TableCell><strong>Peso (kg)</strong></TableCell>
+                           <TableCell><strong>¿Completado?</strong></TableCell>
                        </TableRow>
                    </TableHead>
                    <TableBody>
@@ -78,6 +80,14 @@ const TableRutina = ({dia}) => {
                                    <TableCell>{ej.series}</TableCell>
                                    <TableCell>{ej.repeticiones}</TableCell>
                                    <TableCell>{ej.peso}</TableCell>
+                                   <TableCell>{<Checkbox
+                                       onClick={(e) => e.stopPropagation()}
+                                       sx={{
+                                        color: 'purple',
+                                        '&.Mui-checked': {
+                                             color: 'purple',
+                                        },
+                                   }}/>}</TableCell>
                            </TableRow>
                            )) || (
                                <TableRow>
